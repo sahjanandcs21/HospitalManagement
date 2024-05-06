@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate')%>
+<%- include('../partials/header')%>
+<link rel="stylesheet" href="/css/style.css">
+<div style="margin-top:100px;">
+<h1>All Passive Appointments</h1>
+<table>
+    <tr>
+        <th>Appointment Section</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+      
+      <% for (let i = 0; i < user.appointments.length; i++){%>
+        <tr>
+            <% if(user.appointments[i].appointmentCondition === false){ %>
+              <td><%= user.appointments[i].appointmentSection %></td>
+              <td><%= user.appointments[i].appointmentDoctor %></td>
+              <td> <%= user.appointments[i].appointmentDate %> - <b><%= user.appointments[i].appointmentTime %></b> </td>
+              <td>Passive</td>    
+              <% } %>   
+        </tr>       
+<% }%>
+</table>
+
+
+</div>
+
